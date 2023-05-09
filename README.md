@@ -10,6 +10,10 @@ The initial goal of the repo is to provide syntax highlighting for a number of l
 
 ## Usage
 
+```bash
+npm install @popsql/monaco-sql-languages
+```
+
 See the [`example/`](example/README.md) folder on integrating this project with react.
 
 ## Development
@@ -19,3 +23,7 @@ yarn
 yarn build
 yarn test
 ```
+
+To release a new version, [create a new release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release), and then this will create a release
+on NPM using the release name as the version. Additionally, `example/` will be deployed
+to the `gh-pages` branch.

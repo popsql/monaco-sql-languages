@@ -19,6 +19,8 @@ jobs:
       - run: yarn
       - run: yarn build
 
+      - run: yarn version --no-git-tag-version --new-version ${{ github.event.release.name }}
+
       - run: yarn publish --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -32,12 +34,14 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.PRIVATE_REGISTRY_TOKEN }}
 
       - name: install example dependencies
-        run: yarn
         working-directory: ./example
+        run: yarn
 
       - name: build example site
-        run: yarn build
         working-directory: ./example
+        run: yarn build
+        env:
+          PUBLIC_URL: '/monaco-sql-languages'
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
