@@ -1,8 +1,0 @@
-# packages
-node_modules/
-
-# build artifacts
-lib/
-
-# OS files
-.DS_Store
