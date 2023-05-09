@@ -53,5 +53,8 @@
     "prettier": "^2.8.8",
     "rimraf": "^5.0.0",
     "typescript": "^4.9"
+  },
+  "peerDependencies": {
+    "monaco-editor": "*"
   }
 }
