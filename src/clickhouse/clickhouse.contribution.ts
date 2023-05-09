@@ -1,8 +1,8 @@
 import type { LanguageDefinition } from '../types';
 
 export const clickhouseLanguageDefinition: LanguageDefinition = {
-	id: 'clickhouse',
-	extensions: [],
-	aliases: ['Clickhouse', 'ClickHouse'],
-	loader: () => import('./clickhouse.js'),
+  aliases: ['Clickhouse', 'ClickHouse'],
+  extensions: [],
+  id: 'clickhouse',
+  loader: () => import('./clickhouse.js'),
 };

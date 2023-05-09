@@ -1,28 +1,32 @@
 import { beforeAll, describe, expect, test } from '@jest/globals';
-
 import * as monaco from 'monaco-editor';
+
 import { LanguageDefinition } from '../src/types';
 
 export interface IRelaxedToken {
-	startIndex: number;
-	type: string;
+  startIndex: number;
+  type: string;
 }
 
 export interface ITestItem {
-	line: string;
-	tokens: IRelaxedToken[];
+  line: string;
+  tokens: IRelaxedToken[];
 }
 
 function timeout(ms: number) {
-	return new Promise((resolve) => {
-		setTimeout(resolve, ms);
-	});
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
 
-export function testTokenization(languageId: string, languageDefinition: LanguageDefinition, testItems: ITestItem[][]): void {
+export function testTokenization(
+  languageId: string,
+  languageDefinition: LanguageDefinition,
+  testItems: ITestItem[][],
+): void {
   describe(`${languageId} tokenization`, () => {
     // ensure that the language has been loaded
-		beforeAll(async () => {
+    beforeAll(async () => {
       monaco.languages.register(languageDefinition);
       await new Promise<void>((resolve) => {
         languageDefinition.loader().then((mod) => {
@@ -44,9 +48,9 @@ export function testTokenization(languageId: string, languageDefinition: Languag
             tokens: lineTokens.map((t) => {
               return {
                 startIndex: t.offset,
-                type: t.type
+                type: t.type,
               };
-            })
+            }),
           };
         });
         expect(actual).toEqual(testItem);
