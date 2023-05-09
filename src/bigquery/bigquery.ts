@@ -2,7 +2,7 @@
 
 import type { languages } from 'monaco-editor';
 
-export const languageConfiguration: languages.LanguageConfiguration = {
+export const conf: languages.LanguageConfiguration = {
   comments: {
     lineComment: '--',
     blockComment: ['/*', '*/'],

@@ -85,7 +85,7 @@ const aggregateFunctions = [
   return acc;
 }, []);
 
-export const languageConfiguration: languages.LanguageConfiguration = {
+export const conf: languages.LanguageConfiguration = {
   comments: {
     lineComment: '--',
     blockComment: ['/*', '*/'],
