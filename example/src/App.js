@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react';
-import MonacoEditor from 'react-monaco-editor';
 import {
   bigqueryLanguageDefinition,
   clickhouseLanguageDefinition,
 } from '@popsql/monaco-sql-languages';
+import React, { useCallback } from 'react';
+import MonacoEditor from 'react-monaco-editor';
 
 const App = () => {
   const [code, setCode] = React.useState('SELECT * FROM table');
@@ -11,15 +11,18 @@ const App = () => {
 
   const editorWillMount = useCallback((monaco) => {
     [bigqueryLanguageDefinition, clickhouseLanguageDefinition].forEach(
-      (language) => {
-        monaco.languages.register(language);
-        monaco.languages.onLanguage(language.id, () => {
-          language.loader().then((mod) => {
+      (monacoLanguage) => {
+        monaco.languages.register(monacoLanguage);
+        monaco.languages.onLanguage(monacoLanguage.id, () => {
+          monacoLanguage.loader().then((mod) => {
             monaco.languages.setMonarchTokensProvider(
-              language.id,
+              monacoLanguage.id,
               mod.language,
             );
-            monaco.languages.setLanguageConfiguration(language.id, mod.conf);
+            monaco.languages.setLanguageConfiguration(
+              monacoLanguage.id,
+              mod.conf,
+            );
           });
         });
       },

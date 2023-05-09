@@ -11,6 +11,7 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
+    "build": "react-scripts build",
     "start": "PORT=4000 react-scripts start"
   },
   "browserslist": {
