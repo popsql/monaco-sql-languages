@@ -4,5 +4,5 @@ export const bigqueryLanguageDefinition: LanguageDefinition = {
 	id: 'bigquery',
 	extensions: [],
 	aliases: ['BigQuery', 'bigquery'],
-	loader: () => import('./bigquery'),
+	loader: () => import('./bigquery.js'),
 };

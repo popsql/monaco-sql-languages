@@ -1,2 +1,2 @@
-export * from './bigquery/bigquery.contribution';
-export * from './clickhouse/clickhouse.contribution';
+export { bigqueryLanguageDefinition } from './bigquery/bigquery.contribution.js';
+export { clickhouseLanguageDefinition } from './clickhouse/clickhouse.contribution.js';

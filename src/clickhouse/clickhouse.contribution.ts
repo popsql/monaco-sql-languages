@@ -4,5 +4,5 @@ export const clickhouseLanguageDefinition: LanguageDefinition = {
 	id: 'clickhouse',
 	extensions: [],
 	aliases: ['Clickhouse', 'ClickHouse'],
-	loader: () => import('./clickhouse'),
+	loader: () => import('./clickhouse.js'),
 };
