@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.d01cb2ab.css",
-    "main.js": "/static/js/main.aa18eb13.js",
-    "static/js/6.ddb7c73d.chunk.js": "/static/js/6.ddb7c73d.chunk.js",
-    "static/js/820.f1b0facb.chunk.js": "/static/js/820.f1b0facb.chunk.js",
-    "index.html": "/index.html",
-    "main.d01cb2ab.css.map": "/static/css/main.d01cb2ab.css.map",
-    "main.aa18eb13.js.map": "/static/js/main.aa18eb13.js.map",
-    "6.ddb7c73d.chunk.js.map": "/static/js/6.ddb7c73d.chunk.js.map",
-    "820.f1b0facb.chunk.js.map": "/static/js/820.f1b0facb.chunk.js.map"
+    "main.css": "/monaco-sql-languages/static/css/main.d01cb2ab.css",
+    "main.js": "/monaco-sql-languages/static/js/main.cc9917b4.js",
+    "static/js/6.ddb7c73d.chunk.js": "/monaco-sql-languages/static/js/6.ddb7c73d.chunk.js",
+    "static/js/820.f1b0facb.chunk.js": "/monaco-sql-languages/static/js/820.f1b0facb.chunk.js",
+    "index.html": "/monaco-sql-languages/index.html",
+    "main.d01cb2ab.css.map": "/monaco-sql-languages/static/css/main.d01cb2ab.css.map",
+    "main.cc9917b4.js.map": "/monaco-sql-languages/static/js/main.cc9917b4.js.map",
+    "6.ddb7c73d.chunk.js.map": "/monaco-sql-languages/static/js/6.ddb7c73d.chunk.js.map",
+    "820.f1b0facb.chunk.js.map": "/monaco-sql-languages/static/js/820.f1b0facb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d01cb2ab.css",
-    "static/js/main.aa18eb13.js"
+    "static/js/main.cc9917b4.js"
   ]
 }
