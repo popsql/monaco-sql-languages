@@ -17,6 +17,9 @@
     "import": "./lib/esm/index.js",
     "types": "./lib/types/index.d.ts"
   },
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "rimraf lib && tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json",
     "prepare": "husky install",
