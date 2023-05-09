@@ -85,7 +85,7 @@ const aggregateFunctions = [
   return acc;
 }, []);
 
-export const conf: languages.LanguageConfiguration = {
+export const languageConfiguration: languages.LanguageConfiguration = {
   comments: {
     lineComment: '--',
     blockComment: ['/*', '*/'],
@@ -111,7 +111,7 @@ export const conf: languages.LanguageConfiguration = {
   ],
 };
 
-export const language = <languages.IMonarchLanguage>{
+export const language: languages.IMonarchLanguage = {
   defaultToken: '',
   tokenPostfix: '.sql',
   ignoreCase: true,
