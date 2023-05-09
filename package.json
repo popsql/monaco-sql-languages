@@ -1,6 +1,6 @@
 {
   "name": "@popsql/monaco-sql-languages",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Bundle of SQL languages for the Monaco Editor",
   "repository": "git@github.com:popsql/monaco-sql-languages.git",
   "author": "Matthew Peveler <matt@popsql.com>",
