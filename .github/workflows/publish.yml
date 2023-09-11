@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
+
       - run: yarn
       - run: yarn build
 
@@ -29,6 +30,7 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: ${{ secrets.PRIVATE_REGISTRY }}
+
       - run: yarn publish --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PRIVATE_REGISTRY_TOKEN }}
