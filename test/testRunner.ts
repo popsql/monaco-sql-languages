@@ -39,7 +39,7 @@ export function testTokenization(
     // Trying to use test.each, it unwinds multiple levels of arrays, so we use
     // forEach instead
     testItems.forEach((testItem, idx) => {
-      test(`${idx}`, () => {
+      test(`${idx} - ${testItem[0].line}`, () => {
         const text = testItem.map((t) => t.line).join('\n');
         const actualTokens = monaco.editor.tokenize(text, languageId);
         const actual = actualTokens.map((lineTokens, index) => {
