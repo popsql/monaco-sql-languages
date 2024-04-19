@@ -39,12 +39,13 @@ const App = () => {
   return (
     <div>
       <h1>@popsql/monaco-sql-languages</h1>
-      <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-        {languages.map((langauge) => (
-          <option key={language}>{langauge}</option>
-        ))}
-      </select>
-
+      <div style={{ marginBottom: 10 }}>
+        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+          {languages.map((lang) => (
+            <option key={lang}>{lang}</option>
+          ))}
+        </select>
+      </div>
       <MonacoEditor
         width="1000"
         height="600"
