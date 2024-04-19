@@ -28,11 +28,14 @@ export function testTokenization(
     // ensure that the language has been loaded
     beforeAll(async () => {
       monaco.languages.register(languageDefinition);
-      await new Promise<void>((resolve) => {
-        languageDefinition.loader().then((mod) => {
-          monaco.languages.setMonarchTokensProvider(languageId, mod.language);
-          resolve();
-        });
+      await new Promise<void>((resolve, reject) => {
+        languageDefinition
+          .loader()
+          .then((mod) => {
+            monaco.languages.setMonarchTokensProvider(languageId, mod.language);
+            resolve();
+          })
+          .catch((err) => reject(err));
       });
       await timeout(0);
     });
