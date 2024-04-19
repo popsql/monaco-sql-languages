@@ -1,7 +1,7 @@
 # @popsql/monaco-sql-languages
 
 [![CI](https://github.com/popsql/monaco-sql-languages/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/popsql/monaco-sql-languages/actions/workflows/ci.yml)
-![NPM](https://img.shields.io/npm/v/@popsql/monaco-sql-languages)
+[![NPM](https://img.shields.io/npm/v/@popsql/monaco-sql-languages)](https://www.npmjs.com/package/@popsql/monaco-sql-languages)
 
 This repo contains a bundle of SQL languages for the
 [Monaco Editor](https://microsoft.github.io/monaco-editor/). Currently provided is:
