@@ -1,19 +1,21 @@
 {
   "files": {
     "main.css": "/monaco-sql-languages/static/css/main.d01cb2ab.css",
-    "main.js": "/monaco-sql-languages/static/js/main.27702683.js",
+    "main.js": "/monaco-sql-languages/static/js/main.c4986d5e.js",
     "static/js/6.8c8b9314.chunk.js": "/monaco-sql-languages/static/js/6.8c8b9314.chunk.js",
     "static/js/820.9e6789f6.chunk.js": "/monaco-sql-languages/static/js/820.9e6789f6.chunk.js",
     "static/js/536.6729e365.chunk.js": "/monaco-sql-languages/static/js/536.6729e365.chunk.js",
+    "static/js/453.7a872d99.chunk.js": "/monaco-sql-languages/static/js/453.7a872d99.chunk.js",
     "index.html": "/monaco-sql-languages/index.html",
     "main.d01cb2ab.css.map": "/monaco-sql-languages/static/css/main.d01cb2ab.css.map",
-    "main.27702683.js.map": "/monaco-sql-languages/static/js/main.27702683.js.map",
+    "main.c4986d5e.js.map": "/monaco-sql-languages/static/js/main.c4986d5e.js.map",
     "6.8c8b9314.chunk.js.map": "/monaco-sql-languages/static/js/6.8c8b9314.chunk.js.map",
     "820.9e6789f6.chunk.js.map": "/monaco-sql-languages/static/js/820.9e6789f6.chunk.js.map",
-    "536.6729e365.chunk.js.map": "/monaco-sql-languages/static/js/536.6729e365.chunk.js.map"
+    "536.6729e365.chunk.js.map": "/monaco-sql-languages/static/js/536.6729e365.chunk.js.map",
+    "453.7a872d99.chunk.js.map": "/monaco-sql-languages/static/js/453.7a872d99.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d01cb2ab.css",
-    "static/js/main.27702683.js"
+    "static/js/main.c4986d5e.js"
   ]
 }
