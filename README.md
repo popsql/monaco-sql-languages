@@ -8,6 +8,7 @@ This repo contains a bundle of SQL languages for the
 
 * BigQuery
 * Clickhouse
+* Presto
 * Snowflake
 * Timescale
 
