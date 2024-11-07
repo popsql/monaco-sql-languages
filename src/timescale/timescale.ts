@@ -1,7 +1,4 @@
-import {
-  conf,
-  language,
-} from 'monaco-editor/esm/vs/basic-languages/pgsql/pgsql';
+import { conf, language } from '../pgsql/pgsql';
 
 language.builtinFunctions.push(
   ...[
