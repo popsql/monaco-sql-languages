@@ -1,7 +1,11 @@
+import cloneDeep from 'lodash.clonedeep';
 import {
-  conf,
-  language,
+  conf as oldConf,
+  language as oldLanguage,
 } from 'monaco-editor/esm/vs/basic-languages/pgsql/pgsql';
+
+const conf = cloneDeep(oldConf);
+const language = cloneDeep(oldLanguage);
 
 language.builtinFunctions.push(
   ...[
