@@ -35,6 +35,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PRIVATE_REGISTRY_TOKEN }}
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
       - name: install example dependencies
         working-directory: ./example
         run: yarn
