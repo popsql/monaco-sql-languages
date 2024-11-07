@@ -1,7 +1,9 @@
 import {
   bigqueryLanguageDefinition,
   clickhouseLanguageDefinition,
+  pgsqlLanguageDefinition,
   snowflakeLanguageDefinition,
+  timescaleLanguageDefinition,
 } from '@popsql/monaco-sql-languages';
 import React, { useCallback } from 'react';
 import MonacoEditor from 'react-monaco-editor';
@@ -16,7 +18,9 @@ const App = () => {
     [
       bigqueryLanguageDefinition,
       clickhouseLanguageDefinition,
+      pgsqlLanguageDefinition,
       snowflakeLanguageDefinition,
+      timescaleLanguageDefinition,
     ].forEach((monacoLanguage) => {
       newLanguages.push(monacoLanguage.id);
       monaco.languages.register(monacoLanguage);
