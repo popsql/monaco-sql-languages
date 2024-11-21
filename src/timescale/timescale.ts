@@ -1,3 +1,5 @@
+// Documented for Timescale 2.17.2
+
 import cloneDeep from 'lodash.clonedeep';
 
 import { conf as oldConf, language as oldLanguage } from '../pgsql/pgsql';
@@ -22,6 +24,8 @@ language.builtinFunctions.push(
     'set_chunk_time_interval',
     'set_integer_now_func',
     'add_dimension',
+    'enable_chunk_skipping',
+    'disable_chunk_skipping',
     'create_index',
     'hypertable_size',
     'hypertable_approximate_size',
@@ -44,7 +48,7 @@ language.builtinFunctions.push(
     // 'copy_chunk', - experimental
     // 'move_chunk', - experimental
     // 'cleanup_copy_chunk_operation', - experimental
-    // 'create_distributed_restore_point', - experimental
+    'create_distributed_restore_point',
     // Compression
     'add_compression_policy',
     'remove_compression_policy',
@@ -184,8 +188,8 @@ language.builtinFunctions.push(
     'idelta_left',
     'idelta_right',
     'intercept',
-    // 'interpolated_delta', - experimental
-    // 'interpolated_rate', - experimental
+    'interpolated_delta',
+    'interpolated_rate',
     'irate_left',
     'irate_right',
     'last_time',

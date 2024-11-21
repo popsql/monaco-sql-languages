@@ -1,3 +1,5 @@
+// Documented for pg 17
+
 import cloneDeep from 'lodash.clonedeep';
 import {
   conf as oldConf,
