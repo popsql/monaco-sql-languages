@@ -9,6 +9,7 @@ This repo contains a bundle of SQL languages for the
 * BigQuery
 * Clickhouse
 * PostgreSQL (has functions added in newer versions than available in monaco)
+* Presto
 * Snowflake
 * Timescale
 

@@ -2,6 +2,7 @@ import {
   bigqueryLanguageDefinition,
   clickhouseLanguageDefinition,
   pgsqlLanguageDefinition,
+  prestoLanguageDefinition,
   snowflakeLanguageDefinition,
   timescaleLanguageDefinition,
 } from '@popsql/monaco-sql-languages';
@@ -19,6 +20,7 @@ const App = () => {
       bigqueryLanguageDefinition,
       clickhouseLanguageDefinition,
       pgsqlLanguageDefinition,
+      prestoLanguageDefinition,
       snowflakeLanguageDefinition,
       timescaleLanguageDefinition,
     ].forEach((monacoLanguage) => {
