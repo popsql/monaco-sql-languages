@@ -55,6 +55,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PRIVATE_REGISTRY_TOKEN }}
 
+      # Reset the npm registry to the public one so that the example site can be built with the public package.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.x'
+
       - name: install example dependencies
         working-directory: ./example
         run: yarn
