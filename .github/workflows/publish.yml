@@ -2,6 +2,8 @@ name: Publish
 
 permissions:
   contents: write
+  # required for npm trusted publishing (OIDC)
+  id-token: write
 
 on:
   release:
@@ -15,30 +17,28 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24.x'
-          registry-url: 'https://registry.npmjs.org'
+
+      # npm trusted publishing requires npm >= 11.5.1
+      - name: Upgrade npm
+        run: npm install -g npm@latest
 
       - run: yarn
       - run: yarn build
 
       - run: yarn version --no-git-tag-version --new-version ${{ github.event.release.name }}
 
-      - run: yarn publish --non-interactive
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish to npm (trusted publishing)
+        run: npm publish
 
       - uses: actions/setup-node@v4
         with:
           node-version: '24.x'
           registry-url: ${{ secrets.PRIVATE_REGISTRY }}
 
-      - run: yarn publish --non-interactive
+      - name: Publish to private registry
+        run: yarn publish --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PRIVATE_REGISTRY_TOKEN }}
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '24.x'
-          registry-url: 'https://registry.npmjs.org'
 
       - name: install example dependencies
         working-directory: ./example
