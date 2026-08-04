@@ -1,4 +1,4 @@
-import type { LanguageDefinition } from '../types';
+import type { LanguageDefinition } from '../types.js';
 
 export const timescaleLanguageDefinition: LanguageDefinition = {
   aliases: ['Timescale'],
