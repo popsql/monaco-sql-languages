@@ -27,8 +27,23 @@ jobs:
 
       - run: yarn version --no-git-tag-version --new-version ${{ github.event.release.name }}
 
+      - name: Determine npm dist-tag
+        id: determine_dist_tag
+        # A prerelease version (anything with a `-` suffix, e.g. 0.4.0-pre.0) must
+        # not land on `latest`, and npm >= 11 refuses to publish one without an
+        # explicit --tag. Derive the dist-tag from the version itself so the
+        # GitHub release "prerelease" checkbox can't disagree with the package.
+        env:
+          RELEASE_VERSION: ${{ github.event.release.name }}
+        run: |
+          if [[ "$RELEASE_VERSION" == *-* ]]; then
+            echo "dist_tag=next" >> "$GITHUB_OUTPUT"
+          else
+            echo "dist_tag=latest" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Publish to npm (trusted publishing)
-        run: npm publish
+        run: npm publish --tag ${{ steps.determine_dist_tag.outputs.dist_tag }}
 
       - uses: actions/setup-node@v4
         with:
@@ -36,7 +51,7 @@ jobs:
           registry-url: ${{ secrets.PRIVATE_REGISTRY }}
 
       - name: Publish to private registry
-        run: yarn publish --non-interactive
+        run: yarn publish --non-interactive --tag ${{ steps.determine_dist_tag.outputs.dist_tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PRIVATE_REGISTRY_TOKEN }}
 
