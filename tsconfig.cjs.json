@@ -1,9 +1,15 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "module": "CommonJS",
+    // `node16` rather than `CommonJS`/`node10`: monaco-editor 0.56 exposes its
+    // declarations only through its `exports` map, and the classic resolver
+    // cannot see them (it falls back to the untyped ./min bundle). `node16`
+    // understands `exports` while still emitting CommonJS. `bundler` resolution
+    // from the base config is not an option here, as it requires an ES module.
+    "module": "node16",
+    "moduleResolution": "node16",
     "outDir": "lib/cjs",
     "sourceMap": true,
-    "target": "ES2016",
+    "target": "ES2016"
   }
 }
