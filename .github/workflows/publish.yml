@@ -13,8 +13,8 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '24.x'
 
@@ -45,7 +45,7 @@ jobs:
       - name: Publish to npm (trusted publishing)
         run: npm publish --tag ${{ steps.determine_dist_tag.outputs.dist_tag }}
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: '24.x'
           registry-url: ${{ secrets.PRIVATE_REGISTRY }}
@@ -55,10 +55,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.PRIVATE_REGISTRY_TOKEN }}
 
-      # Reset the npm registry to the public one so that the example site can be built with the public package.
-      - uses: actions/setup-node@v4
+      # Point the registry back at the public npm registry for the example install.
+      # `setup-node` exports NPM_CONFIG_USERCONFIG for the remainder of the job when
+      # `registry-url` is given, and it never unsets it, so a bare `setup-node` here
+      # would leave the private registry in effect. Passing an explicit `registry-url`
+      # rewrites that same .npmrc with the public registry instead.
+      - uses: actions/setup-node@v7
         with:
           node-version: '24.x'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: install example dependencies
         working-directory: ./example
@@ -71,7 +76,7 @@ jobs:
           PUBLIC_URL: '/monaco-sql-languages'
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v4.1.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./example/build
