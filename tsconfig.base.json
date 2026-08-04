@@ -4,6 +4,18 @@
     "isolatedModules": true,
 		"module": "ESNext",
 		"moduleResolution": "node",
+    // monaco-editor 0.56's `typings` field points at
+    // ./esm/vs/editor/editor.main.d.ts, which the package no longer ships (the
+    // real declarations moved to ./esm/vs/index.d.ts, reachable only through its
+    // `exports` map). `moduleResolution: node` ignores `exports`, so without this
+    // mapping TypeScript falls back to the untyped ./min bundle and every
+    // `import ... from 'monaco-editor'` degrades to an implicit-any error.
+    //
+    // A `moduleResolution` that honors `exports` would also fix this, but that
+    // needs TypeScript 5.x; this keeps the change scoped to the bug.
+    "paths": {
+      "monaco-editor": ["./node_modules/monaco-editor/esm/vs/index.d.ts"]
+    },
     "strict": true,
 		"target": "ESNext",
 	},

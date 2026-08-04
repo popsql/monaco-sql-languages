@@ -36,6 +36,7 @@
     "@typescript-eslint/eslint-plugin": "^5.31.0",
     "@typescript-eslint/parser": "^5.31.0",
     "babel-jest": "^29.5.0",
+    "babel-plugin-transform-import-meta": "^2.3.3",
     "eslint": "^8.40.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.8.0",
@@ -50,13 +51,13 @@
     "jest-css-modules-transform": "^4.4.2",
     "jest-environment-jsdom": "^29.5.0",
     "lint-staged": "^13.2.2",
-    "monaco-editor": "^0.38.0",
+    "monaco-editor": "^0.56.0",
     "prettier": "^2.8.8",
     "rimraf": "^5.0.0",
     "typescript": "^4.9"
   },
   "peerDependencies": {
-    "monaco-editor": "*"
+    "monaco-editor": ">=0.56.0"
   },
   "dependencies": {
     "lodash.clonedeep": "^4.5.0"

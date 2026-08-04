@@ -1,10 +1,21 @@
 // Documented for pg 17
 
 import cloneDeep from 'lodash.clonedeep';
+// monaco-editor 0.56 reorganized its ESM tree, moving the monarch language
+// definitions from `basic-languages/<lang>/<lang>` to
+// `languages/definitions/<lang>/<lang>`, and added an `exports` map. Both parts
+// matter here:
+//
+//   - The exports map is the only supported way in; `monaco-editor/esm/vs/...`
+//     specifiers no longer resolve at all, because the map's wildcards rewrite
+//     `./<path>` to `./esm/vs/<path>.js`.
+//   - Because the mapped target is matched literally, the `.js` suffix is
+//     required rather than stylistic. Without it this resolves to a file that
+//     does not exist.
 import {
   conf as oldConf,
   language as oldLanguage,
-} from 'monaco-editor/esm/vs/basic-languages/pgsql/pgsql';
+} from 'monaco-editor/languages/definitions/pgsql/pgsql.js';
 
 const conf = cloneDeep(oldConf);
 const language = cloneDeep(oldLanguage);
