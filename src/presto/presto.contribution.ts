@@ -1,4 +1,4 @@
-import type { LanguageDefinition } from '../types.js';
+import type { LanguageDefinition } from '../types';
 
 export const prestoLanguageDefinition: LanguageDefinition = {
   aliases: ['Presto'],

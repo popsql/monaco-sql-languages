@@ -2,7 +2,7 @@
 
 import cloneDeep from 'lodash.clonedeep';
 
-import { conf as oldConf, language as oldLanguage } from '../pgsql/pgsql.js';
+import { conf as oldConf, language as oldLanguage } from '../pgsql/pgsql';
 
 const conf = cloneDeep(oldConf);
 const language = cloneDeep(oldLanguage);
