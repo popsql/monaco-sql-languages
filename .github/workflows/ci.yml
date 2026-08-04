@@ -31,3 +31,30 @@ jobs:
       - run: yarn lint
       - run: yarn test
       - run: yarn build
+
+  # The example consumes the built package via `file:../`, so it is the only
+  # check that exercises the published entry points and the monaco-editor peer
+  # dependency the way a real consumer would. The publish workflow builds it to
+  # deploy GitHub Pages, and without this job a break there is only discovered
+  # during a release.
+  example:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24.x
+          cache: yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+
+      - name: install example dependencies
+        working-directory: ./example
+        run: yarn install --frozen-lockfile
+
+      # react-scripts runs eslint as part of the production build, so this
+      # covers both linting and compilation of the example.
+      - name: build example site
+        working-directory: ./example
+        run: yarn build
