@@ -1,8 +1,13 @@
 # @popsql/monaco-sql-languages example
 
 This folder holds an example of how you could integrate the `@popsql/monaco-sql-languages` module
-with your `react-monaco-editor` setup. It was bootstrapped with
+with `monaco-editor`. It was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app).
+
+The editor is mounted directly via `monaco.editor.create` rather than through a React wrapper
+library. Note that monaco-editor 0.56 serves its ESM entry points through the package `exports`
+map, so the import specifier is `monaco-editor/editor/editor.api` — the older
+`monaco-editor/esm/vs/editor/editor.api` path no longer resolves.
 
 ## Getting Started
 
@@ -17,7 +22,7 @@ yarn build
 Then, you can install the necessary dependencies in this folder:
 
 ```bash
-yarn build
+yarn
 ```
 
 ## Running the example
