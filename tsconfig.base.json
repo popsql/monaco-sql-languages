@@ -1,16 +1,18 @@
 {
-	"compilerOptions": {
+  "compilerOptions": {
     "esModuleInterop": true,
     "isolatedModules": true,
-		"module": "ESNext",
-		"moduleResolution": "node",
+    "module": "ESNext",
+    // `bundler` resolution honors package `exports` maps, which monaco-editor
+    // 0.56 relies on: its declarations live at ./esm/vs/index.d.ts and are only
+    // reachable through `exports` (the legacy `typings` field still points at a
+    // file the package no longer ships). Under the older `node` resolution
+    // TypeScript fell back to the untyped ./min bundle and every
+    // `import ... from 'monaco-editor'` degraded to an implicit any.
+    "moduleResolution": "bundler",
     "strict": true,
-		"target": "ESNext",
-	},
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "src/**/*.test.ts"
-  ]
+    "target": "ESNext"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test.ts"]
 }

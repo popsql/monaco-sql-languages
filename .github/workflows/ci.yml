@@ -15,14 +15,19 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x, 18.x, 20.x, 22.x]
+        # monaco-editor 0.56 (and the modernized toolchain: jest 30, eslint 8 with
+        # a TypeScript 5 parser) no longer support the older runtimes this matrix
+        # used to cover, and `engines` now requires >=24.
+        node-version: [24.x]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: yarn install
+          cache: yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn lint
       - run: yarn test
       - run: yarn build
